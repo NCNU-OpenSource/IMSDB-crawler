@@ -129,7 +129,7 @@ e/n/d/r/c/s/q> q (輸入q)
 - 申請 check url
   - 請去 https://healthchecks.io/ sign up 申請, 個人提供 : https://hc-ping.com/7069af96-66ed-4787-a0b5-518fb55a62ec
 - rclone 設定
-```
+
 - 設定參數 & 執行備份
 - 參數說明:
   - `-v`/在本機要共享的資料夾/container 中的資料夾`
