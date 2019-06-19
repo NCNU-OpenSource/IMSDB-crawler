@@ -45,7 +45,7 @@ sudo apt-cache madison docker-ce
 mkdir config
 docker run --rm -it -v $(pwd)/config:/config bcardiff/rclone
 ```
-```
+:::info
 No remotes found - make a new one
 n) New remote
 r) Rename remote
@@ -95,7 +95,7 @@ y) Yes
 n) No
 y/n> N (輸入N)
 If your browser doesn't open automatically go to the following link: https://accounts.google.com/o/oauth2/auth?client_id=123443211234.apps.googleusercontent.com&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&state=00024d768aaaaaaaaaa8267
-```
+:::
 - 複製上面 link 貼至瀏覽器
 - 取得授權碼
 - 返回 terminal 貼上授權碼
@@ -145,13 +145,21 @@ sudo docker run -idt -v $(pwd)/config:/config -v /path/to/your/directory:/source
 ```
 ### build image
 - 切換到下載的目錄的檔案
-`sudo docker build --rm -t image_name .`
+```
+sudo docker build --rm -t image_name .
+```
 - 執行最初的爬網站
-`sudo docker run --rm -dit -v /path/to/Dockershare:/Dockershare -e EXE="main.py" image_name`
+```
+sudo docker run --rm -dit -v /path/to/Dockershare:/Dockershare -e EXE="main.py" image_name
+```
 - 檢查每日更新
-`sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e EXE="check.py" image_name`
+```
+sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e EXE="check.py" image_name
+```
 - 每日爬資源
-`(crontab -e) 30 0 * * * /path/to/dowland-directory/create.sh`
+```
+(crontab -e) 30 0 * * * /path/to/dowland-directory/create.sh
+```
 
 ## 成果展示
 
