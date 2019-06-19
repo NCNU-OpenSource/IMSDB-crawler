@@ -143,7 +143,15 @@ e/n/d/r/c/s/q> q (輸入q)
 ```
 sudo docker run -idt -v $(pwd)/config:/config -v /path/to/your/directory:/source -e SC_SRC="/source" -e SYNC_DEST="your-google-drive:team-drive" -e TZ="Asia/Taipei" -e CRON="0 0 * * *" -e CRON_ABORT="0 6 * * *" -e FORCE_SYNC=1 -e CHECK_URL=Your check url bcardiff/rclone
 ```
-
+### build image
+- 切換到下載的目錄的檔案
+`sudo docker build --rm -t image_name .`
+- 執行最初的爬網站
+`sudo docker run --rm -dit -v /path/to/Dockershare:/Dockershare -e EXE="main.py" image_name`
+- 檢查每日更新
+`sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e EXE="check.py" image_name`
+- 每日爬資源
+`(crontab -e) 30 0 * * * /path/to/dowland-directory/create.sh`
 
 ## 成果展示
 
