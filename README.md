@@ -170,10 +170,15 @@ sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e
 ## 注意事項
 1. crontab 請使用絕對路徑
 2. 使用前請先檢查路徑
-2. 進入執行中的 container `sudo docker exec -it container CMD`
-3. 給予 Docker 權限 `sudo usermod -a -G docker $USER`
-4. 查看 container error `docker logs -f container_id`
-5. 一次清理大量停止 container `sudo docker container prune`
+3. 注意 shell or .py 是否給予執行權限
+4. 進入執行中的 container `sudo docker exec -it container CMD`
+5. 給予 Docker 權限 `sudo usermod -a -G docker $USER`
+6. 查看 container error `docker logs -f container_id`
+7. 一次清理大量停止 container `sudo docker container prune`
+
+## 未來改進
+- 目前由於安裝套件 pyodbc 的問題與時間緣故，無法進行連線資料庫
+- 努力改進 image, 期許能夠 push 到 docker hub 上
 
 ## 參考
 - [LSA-1072 Docker](https://docs.google.com/presentation/d/1wYhJkBQkx0jS-oyJG-2imdI7p93wti4XZqR9Jc49PxE/edit?usp=sharing)　
@@ -181,5 +186,7 @@ sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e
 - [鳥哥的私房菜](http://linux.vbird.org/)
 
 ## 分工
+- 104321021 劉肇中 : 撰寫核心爬蟲程式 main.py, check.py, crul_script.py
+- 104321024 蔡旻勳 : 建立 docker image 相關, rclone 備份雲端
 
 
