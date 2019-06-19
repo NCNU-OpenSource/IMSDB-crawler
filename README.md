@@ -267,7 +267,7 @@ sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e
 4. 注意 shell or .py 是否給予執行權限
 5. 進入執行中的 container `sudo docker exec -it container CMD`
 6. 給予 Docker 權限 `sudo usermod -a -G docker $USER`
-7. 查看 container error `docker logs -f container_id`
+7. 查看 container logs or error `docker logs -f container_id`
 8. 一次清理大量停止 container `sudo docker container prune`
 
 ## 未來改進
