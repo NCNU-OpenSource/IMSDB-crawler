@@ -1,15 +1,24 @@
 # IMSDB-crawler
 ---
-## 動機
-做電影票房預測，如果能將關鍵字(tags)作為參數可以增價正確性，目前有提供keyword的資訊少之又少，所以我們決定蒐集相關材料。
-一但有此資料便利資料科學的方法得出結果(e.g. tf-idf)
+# Group 1
+# Group member
+1. 資工四 104321021 劉肇中
+2. 資工四 104321024 蔡旻勳
 
 ## 功能
-1. 高效爬下所有IMSDB的劇本之編劇、類型以及腳本並備份至雲端
-2. 定時更新內容
-3. 文字分析並統計
+- 使用 docker 建立 crawler-image
+- 建立多個 container 高效爬下所有IMSDB的劇本之編劇、類型以及腳本
+- 使用 rclone 備份至 google drive
+- 定時從網站更新內容
+- 文字分析並統計
+
 ## 開發環境
-1. ubuntu 16.04
-2. docker
-3. python 3.5
-4. nltk
+- Ubuntu 16.04
+- Docker version 18.09.6
+- Python 3.5
+
+## 套件安裝
+### Python
+### Docker
+
+
