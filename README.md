@@ -255,6 +255,9 @@ sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e
 ![list](https://github.com/NCNU-OpenSource/IMSDB-crawler/blob/master/%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA/list.png)
 ![crawler](https://github.com/NCNU-OpenSource/IMSDB-crawler/blob/master/%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA/crawler.png)
 ![analyze](https://github.com/NCNU-OpenSource/IMSDB-crawler/blob/master/%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA/analyze.png)
+![rclone](https://github.com/NCNU-OpenSource/IMSDB-crawler/blob/master/%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA/rclone.png)
+![drive1](https://github.com/NCNU-OpenSource/IMSDB-crawler/blob/master/%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA/drive1.png)
+![drive2](https://github.com/NCNU-OpenSource/IMSDB-crawler/blob/master/%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA/drive2.png)
 
 
 ## 注意事項
