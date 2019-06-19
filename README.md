@@ -158,6 +158,8 @@ sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e
 ```
 - 每日爬資源
 ```
+/path/to/dowland-directory/create.sh
+- 修改 path : to download-directory
 (crontab -e) 30 0 * * * /path/to/dowland-directory/create.sh
 ```
 
