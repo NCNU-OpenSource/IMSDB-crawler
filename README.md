@@ -168,9 +168,17 @@ sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e
 ## 成果展示
 
 ## 注意事項
+1. crontab 請使用絕對路徑
+2. 使用前請先檢查路徑
+2. 進入執行中的 container `sudo docker exec -it container CMD`
+3. 給予 Docker 權限 `sudo usermod -a -G docker $USER`
+4. 查看 container error `docker logs -f container_id`
+5. 一次清理大量停止 container `sudo docker container prune`
 
 ## 參考
 - [LSA-1072 Docker](https://docs.google.com/presentation/d/1wYhJkBQkx0jS-oyJG-2imdI7p93wti4XZqR9Jc49PxE/edit?usp=sharing)　
+- [bcardiff/rclone](https://hub.docker.com/r/bcardiff/rclone/)
+- [鳥哥的私房菜](http://linux.vbird.org/)
 
 ## 分工
 
