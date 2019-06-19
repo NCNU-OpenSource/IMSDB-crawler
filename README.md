@@ -45,22 +45,6 @@ sudo apt-cache madison docker-ce
 mkdir config
 docker run --rm -it -v $(pwd)/config:/config bcardiff/rclone
 ```
-- 申請 check url
-  - 請去 https://healthchecks.io/ sign up 申請, 個人提供 : https://hc-ping.com/7069af96-66ed-4787-a0b5-518fb55a62ec
-- 設定參數 & 執行備份
-- 參數說明:
-  - `-v`/在本機要共享的資料夾/container 中的資料夾`
-  - `-e SC_SRC` 備份來源
-  - `-e SYNC_DEST` 備份目的地
-  - `-e TZ` 時區設定
-  - `-e CRON` 執行備份時間
-  - `-e CRON_ABORT` 停止執行備份時間
-  - `-e FORCE_SYNC=1` 默認為 1
-  - `-e CHECK_URL` 幫助檢查 rclone
-```
-sudo docker run -idt -v $(pwd)/config:/config -v /path/to/your/directory:/source -e SC_SRC="/source" -e SYNC_DEST="your-google-drive:team-drive" -e TZ="Asia/Taipei" -e CRON="0 0 * * *" -e CRON_ABORT="0 6 * * *" -e FORCE_SYNC=1 -e CHECK_URL=Your check url bcardiff/rclone
-```
-- rclone 設定
 ```
 No remotes found - make a new one
 n) New remote
@@ -141,6 +125,23 @@ c) Copy remote
 s) Set configuration password
 q) Quit config
 e/n/d/r/c/s/q> q (輸入q)
+```
+- 申請 check url
+  - 請去 https://healthchecks.io/ sign up 申請, 個人提供 : https://hc-ping.com/7069af96-66ed-4787-a0b5-518fb55a62ec
+- rclone 設定
+```
+- 設定參數 & 執行備份
+- 參數說明:
+  - `-v`/在本機要共享的資料夾/container 中的資料夾`
+  - `-e SC_SRC` 備份來源
+  - `-e SYNC_DEST` 備份目的地
+  - `-e TZ` 時區設定
+  - `-e CRON` 執行備份時間
+  - `-e CRON_ABORT` 停止執行備份時間
+  - `-e FORCE_SYNC=1` 默認為 1
+  - `-e CHECK_URL` 幫助檢查 rclone
+```
+sudo docker run -idt -v $(pwd)/config:/config -v /path/to/your/directory:/source -e SC_SRC="/source" -e SYNC_DEST="your-google-drive:team-drive" -e TZ="Asia/Taipei" -e CRON="0 0 * * *" -e CRON_ABORT="0 6 * * *" -e FORCE_SYNC=1 -e CHECK_URL=Your check url bcardiff/rclone
 ```
 
 
