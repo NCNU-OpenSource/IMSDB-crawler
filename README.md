@@ -46,76 +46,160 @@ mkdir config
 docker run --rm -it -v $(pwd)/config:/config bcardiff/rclone
 ```
 ```
+INFO: No SYNC_SRC and SYNC_DEST found. Starting rclone config
+2019/06/19 13:46:18 NOTICE: Config file "/config/rclone.conf" not found - using defaults
 No remotes found - make a new one
 n) New remote
-r) Rename remote
-c) Copy remote
 s) Set configuration password
 q) Quit config
-n/r/c/s/q>n (輸入n)
-name> gdrive (可以自取名稱)
+n/s/q> n
+name> kent1201-google-drive
 Type of storage to configure.
+Enter a string value. Press Enter for the default ("").
 Choose a number from below, or type in your own value
- 1 / Amazon Drive
+ 1 / A stackable unification remote, which can appear to merge the contents of several remotes
+   \ "union"
+ 2 / Alias for a existing remote
+   \ "alias"
+ 3 / Amazon Drive
    \ "amazon cloud drive"
- 2 / Amazon S3 (also Dreamhost, Ceph, Minio)
+ 4 / Amazon S3 Compliant Storage Provider (AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, etc)
    \ "s3"
- 3 / Backblaze B2
+ 5 / Backblaze B2
    \ "b2"
- 4 / Dropbox
+ 6 / Box
+   \ "box"
+ 7 / Cache a remote
+   \ "cache"
+ 8 / Dropbox
    \ "dropbox"
- 5 / Encrypt/Decrypt a remote
+ 9 / Encrypt/Decrypt a remote
    \ "crypt"
- 6 / Google Cloud Storage (this is not Google Drive)
+10 / FTP Connection
+   \ "ftp"
+11 / Google Cloud Storage (this is not Google Drive)
    \ "google cloud storage"
- 7 / Google Drive
+12 / Google Drive
    \ "drive"
- 8 / Hubic
+13 / Hubic
    \ "hubic"
- 9 / Local Disk
+14 / JottaCloud
+   \ "jottacloud"
+15 / Koofr
+   \ "koofr"
+16 / Local Disk
    \ "local"
-10 / Microsoft OneDrive
+17 / Mega
+   \ "mega"
+18 / Microsoft Azure Blob Storage
+   \ "azureblob"
+19 / Microsoft OneDrive
    \ "onedrive"
-11 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)
+20 / OpenDrive
+   \ "opendrive"
+21 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)
    \ "swift"
-12 / SSH/SFTP Connection
+22 / Pcloud
+   \ "pcloud"
+23 / QingCloud Object Storage
+   \ "qingstor"
+24 / SSH/SFTP Connection
    \ "sftp"
-13 / Yandex Disk
+25 / Webdav
+   \ "webdav"
+26 / Yandex Disk
    \ "yandex"
-Storage> 7 (選擇7使用Google Drive)
-Google Application Client Id - leave blank normally.
-client_id> (按enter即可)
-Google Application Client Secret - leave blank normally.
-client_secret> (按enter即可)
+27 / http Connection
+   \ "http"
+Storage> 12 (選擇12使用Google Drive)
+** See help for drive backend at: https://rclone.org/drive/ **
+Google Application Client Id
+Setting your own is recommended.
+See https://rclone.org/drive/#making-your-own-client-id for how to create your own.
+If you leave this blank, it will use an internal key which is low performance.
+Enter a string value. Press Enter for the default ("").
+client_id> (Enter)
+Google Application Client Secret
+Setting your own is recommended.
+Enter a string value. Press Enter for the default ("").
+client_secret> (Enter)
+Scope that rclone should use when requesting access from drive.
+Enter a string value. Press Enter for the default ("").
+Choose a number from below, or type in your own value
+ 1 / Full access all files, excluding Application Data Folder.
+   \ "drive"
+ 2 / Read-only access to file metadata and file contents.
+   \ "drive.readonly"
+   / Access to files created by rclone only.
+ 3 | These are visible in the drive website.
+   | File authorization is revoked when the user deauthorizes the app.
+   \ "drive.file"
+   / Allows read and write access to the Application Data folder.
+ 4 | This is not visible in the drive website.
+   \ "drive.appfolder"
+   / Allows read-only access to file metadata but
+ 5 | does not allow any access to read or download file content.
+   \ "drive.metadata.readonly"
+scope> 1
+ID of the root folder
+Leave blank normally.
+Fill in to access "Computers" folders. (see docs).
+Enter a string value. Press Enter for the default ("").
+root_folder_id> 
+Service Account Credentials JSON file path 
+Leave blank normally.
+Needed only if you want use SA instead of interactive login.
+Enter a string value. Press Enter for the default ("").
+service_account_file> 
+Edit advanced config? (y/n)
+y) Yes
+n) No
+y/n> n
 Remote config
 Use auto config?
  * Say Y if not sure
- * Say N if you are working on a remote or headless machine or Y didn't work
+ * Say N if you are working on a remote or headless machine
 y) Yes
 n) No
-y/n> N (輸入N)
-If your browser doesn't open automatically go to the following link: https://accounts.google.com/o/oauth2/auth?client_id=123443211234.apps.googleusercontent.com&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&state=00024d768aaaaaaaaaa8267
+y/n> n
+If your browser doesn't open automatically go to the following link: https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=202264815644.apps.googleusercontent.com&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&state=841997832a956e419f6690addc02ead5
+Log in and authorize rclone for access
 ```
 - 複製上面 link 貼至瀏覽器
 - 取得授權碼
 - 返回 terminal 貼上授權碼
 ```
 Log in and authorize rclone for access
-Enter verification code> 授權碼
-#[ketn1201-google-drive]
+Enter verification code> 4/bQFzBS6Kwr986Q6r_cnREuNh2gLvB5TUOjTCF6TjP6PL-mCG6CxLU6sJF0
+Configure this as a team drive?
+y) Yes
+n) No
+y/n> y
+Fetching team drive list...
+Choose a number from below, or type in your own value
+ 1 / 1071 LSA 第六組
+   \ "0AKdXyui8JclVyUk9PVA"
+ 2 / 1072-LSA 
+   \ "0AJQlxhBDCrtDLUk9PVA"
+ 3 / LAB307
+   \ "0ABgbXs4H5t2I5UkG9PVA"
+Enter a Team Drive ID> 2
+--------------------
+[kent1201-google-drive]
 type = drive
-token = {"access_token":"ya29.GlwoB4UL0OqZqqEkL6PZ5XYpp72iumCB7JTe0rvzJVLr5eBl50HBjDfp3rind11LX1ywqGVFtAqYQnIS3EXQxLxmZg-jUi8bDXOp7pS8Wsr0jHtyDgPD0uKsQh4m0w","token_type":"Bearer","refresh_token":"1/7H3aRS9RIHPhMiKJOoL2XcBZ1d4Q-5iEJUMClj17YudSbZ4u6nMMXPGwDHu7bFOk","expiry":"2019-06-14T17:38:39.979031888+08:00"}
-team_drive = 0AJQlxhBDCrtLUk9PVA
-
-y) Yes this is OK
+scope = drive
+token = {"access_token":"ya29.GlssdB5bjJ3c-iRWPfiATPrmMcr74ejkPOyidw01cLd_ewWqdKWwFEDIkjuxD_NX3PglETenoRYRq2pPw9LhtWiOlc0euHg_-L9dXTfCl7o8hSQI_2pV1fEMqsl_Wj2","token_type":"Bearer","refresh_token":"1/Cgzoe4lvzpjAvFjLmpNLenTh6_J2cf5Swl6x-AUoUB5G8yvj6RUCshTjsAcA4eEgZ","expiry":"2019-06-19T14:51:15.356901904Z"}
+team_drive = 0AJQSlxhBDCrtLUWk9PVA
+--------------------
+) Yes this is OK
 e) Edit this remote
 d) Delete this remote
-y/e/d> y (輸入y)
+y/e/d> y
 Current remotes:
 
 Name                 Type
 ====                 ====
-gdrive               drive
+kent1201-google-drive drive
 
 e) Edit existing remote
 n) New remote
@@ -124,7 +208,9 @@ r) Rename remote
 c) Copy remote
 s) Set configuration password
 q) Quit config
-e/n/d/r/c/s/q> q (輸入q)
+e/n/d/r/c/s/q> q
+INFO: Define SYNC_SRC and SYNC_DEST to start sync process.
+
 ```
 - 申請 check url
   - 請去 https://healthchecks.io/ sign up 申請, 個人提供 : https://hc-ping.com/7069af96-66ed-4787-a0b5-518fb55a62ec
@@ -133,7 +219,7 @@ e/n/d/r/c/s/q> q (輸入q)
 - 設定參數 & 執行備份
 - 參數說明:
   - `-v`/在本機要共享的資料夾/container 中的資料夾`
-  - `-e SC_SRC` 備份來源
+  - `-e SYNC_SRC` 備份來源
   - `-e SYNC_DEST` 備份目的地
   - `-e TZ` 時區設定
   - `-e CRON` 執行備份時間
@@ -141,7 +227,7 @@ e/n/d/r/c/s/q> q (輸入q)
   - `-e FORCE_SYNC=1` 默認為 1
   - `-e CHECK_URL` 幫助檢查 rclone
 ```
-sudo docker run -idt -v $(pwd)/config:/config -v /path/to/your/directory:/source -e SC_SRC="/source" -e SYNC_DEST="your-google-drive:team-drive" -e TZ="Asia/Taipei" -e CRON="0 0 * * *" -e CRON_ABORT="0 6 * * *" -e FORCE_SYNC=1 -e CHECK_URL=Your check url bcardiff/rclone
+sudo docker run -idt -v $(pwd)/config:/config -v /path/to/your/directory:/source -e SYNC_SRC="/source" -e SYNC_DEST="your-google-drive:team-drive" -e TZ="Asia/Taipei" -e CRON="0 1 * * *" -e CRON_ABORT="0 6 * * *" -e FORCE_SYNC=1 -e CHECK_URL=Your check url bcardiff/rclone
 ```
 ### build image
 - 切換到下載的目錄的檔案
