@@ -166,6 +166,8 @@ sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e
 ```
 
 ## 成果展示
+![analyze](https://github.com/NCNU-OpenSource/IMSDB-crawler/blob/master/%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA/analyze.png)
+
 
 ## 注意事項
 1. crontab 請使用絕對路徑
