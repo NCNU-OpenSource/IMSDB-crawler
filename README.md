@@ -60,6 +60,89 @@ docker run --rm -it -v $(pwd)/config:/config bcardiff/rclone
 ```
 sudo docker run -idt -v $(pwd)/config:/config -v /path/to/your/directory:/source -e SC_SRC="/source" -e SYNC_DEST="your-google-drive:team-drive" -e TZ="Asia/Taipei" -e CRON="0 0 * * *" -e CRON_ABORT="0 6 * * *" -e FORCE_SYNC=1 -e CHECK_URL=Your check url bcardiff/rclone
 ```
+- rclone 設定
+```
+No remotes found - make a new one
+n) New remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+n/r/c/s/q>n (輸入n)
+name> gdrive (可以自取名稱)
+Type of storage to configure.
+Choose a number from below, or type in your own value
+ 1 / Amazon Drive
+   \ "amazon cloud drive"
+ 2 / Amazon S3 (also Dreamhost, Ceph, Minio)
+   \ "s3"
+ 3 / Backblaze B2
+   \ "b2"
+ 4 / Dropbox
+   \ "dropbox"
+ 5 / Encrypt/Decrypt a remote
+   \ "crypt"
+ 6 / Google Cloud Storage (this is not Google Drive)
+   \ "google cloud storage"
+ 7 / Google Drive
+   \ "drive"
+ 8 / Hubic
+   \ "hubic"
+ 9 / Local Disk
+   \ "local"
+10 / Microsoft OneDrive
+   \ "onedrive"
+11 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)
+   \ "swift"
+12 / SSH/SFTP Connection
+   \ "sftp"
+13 / Yandex Disk
+   \ "yandex"
+Storage> 7 (選擇7使用Google Drive)
+Google Application Client Id - leave blank normally.
+client_id> (按enter即可)
+Google Application Client Secret - leave blank normally.
+client_secret> (按enter即可)
+Remote config
+Use auto config?
+ * Say Y if not sure
+ * Say N if you are working on a remote or headless machine or Y didn't work
+y) Yes
+n) No
+y/n> N (輸入N)
+If your browser doesn't open automatically go to the following link: https://accounts.google.com/o/oauth2/auth?client_id=123443211234.apps.googleusercontent.com&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&state=00024d768aaaaaaaaaa8267
+```
+> 複製上面 link 貼至瀏覽器
+> 取得授權碼
+> 返回 terminal 貼上授權碼
+```
+Log in and authorize rclone for access
+Enter verification code> 授權碼
+#[ketn1201-google-drive]
+type = drive
+token = {"access_token":"ya29.GlwoB4UL0OqZqqEkL6PZ5XYpp72iumCB7JTe0rvzJVLr5eBl50HBjDfp3rind11LX1ywqGVFtAqYQnIS3EXQxLxmZg-jUi8bDXOp7pS8Wsr0jHtyDgPD0uKsQh4m0w","token_type":"Bearer","refresh_token":"1/7H3aRS9RIHPhMiKJOoL2XcBZ1d4Q-5iEJUMClj17YudSbZ4u6nMMXPGwDHu7bFOk","expiry":"2019-06-14T17:38:39.979031888+08:00"}
+team_drive = 0AJQlxhBDCrtLUk9PVA
+
+y) Yes this is OK
+e) Edit this remote
+d) Delete this remote
+y/e/d> y (輸入y)
+Current remotes:
+
+Name                 Type
+====                 ====
+gdrive               drive
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q> q (輸入q)
+```
+
 
 ## 成果展示
 
