@@ -112,9 +112,9 @@ n) No
 y/n> N (輸入N)
 If your browser doesn't open automatically go to the following link: https://accounts.google.com/o/oauth2/auth?client_id=123443211234.apps.googleusercontent.com&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&state=00024d768aaaaaaaaaa8267
 ```
-> 複製上面 link 貼至瀏覽器
-> 取得授權碼
-> 返回 terminal 貼上授權碼
+- 複製上面 link 貼至瀏覽器
+- 取得授權碼
+- 返回 terminal 貼上授權碼
 ```
 Log in and authorize rclone for access
 Enter verification code> 授權碼
