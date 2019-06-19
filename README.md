@@ -263,11 +263,12 @@ sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e
 ## 注意事項
 1. crontab 請使用絕對路徑
 2. 使用前請先檢查路徑
-3. 注意 shell or .py 是否給予執行權限
-4. 進入執行中的 container `sudo docker exec -it container CMD`
-5. 給予 Docker 權限 `sudo usermod -a -G docker $USER`
-6. 查看 container error `docker logs -f container_id`
-7. 一次清理大量停止 container `sudo docker container prune`
+3. Dockershare 為預設 container 之間共享，更動前請注意 
+4. 注意 shell or .py 是否給予執行權限
+5. 進入執行中的 container `sudo docker exec -it container CMD`
+6. 給予 Docker 權限 `sudo usermod -a -G docker $USER`
+7. 查看 container error `docker logs -f container_id`
+8. 一次清理大量停止 container `sudo docker container prune`
 
 ## 未來改進
 - 目前由於安裝套件 pyodbc 的問題與時間緣故，無法進行連線資料庫
