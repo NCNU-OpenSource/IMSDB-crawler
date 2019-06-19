@@ -230,7 +230,7 @@ INFO: Define SYNC_SRC and SYNC_DEST to start sync process.
 sudo docker run -idt -v $(pwd)/config:/config -v /path/to/your/directory:/source -e SYNC_SRC="/source" -e SYNC_DEST="your-google-drive:team-drive" -e TZ="Asia/Taipei" -e CRON="0 1 * * *" -e CRON_ABORT="0 6 * * *" -e FORCE_SYNC=1 -e CHECK_URL=Your check url bcardiff/rclone
 ```
 ### build image
-- 切換到下載的目錄的檔案
+- 切換到下載的目錄
 ```
 sudo docker build --rm -t image_name .
 ```
