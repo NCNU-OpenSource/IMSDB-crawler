@@ -243,12 +243,12 @@ sudo docker run --rm -dit -v /path/to/Dockershare:/Dockershare -e EXE="main.py" 
 sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e EXE="check.py" image_name
 ```
 - 每日爬資源
-  - /path/to/dowland-directory/create.sh
+  - /path/to/download-directory/create.sh
   - 修改 path : to download-directory
   - 修改 image_name
  
 ```
-(crontab -e) 30 0 * * * /path/to/dowland-directory/create.sh
+(crontab -e) 30 0 * * * /path/to/download-directory/create.sh
 ```
 
 ## 成果展示
