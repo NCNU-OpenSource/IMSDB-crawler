@@ -38,4 +38,13 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 sudo apt-cache madison docker-ce
 ```
 
+## 程式執行
+### rclone 備份
+- 事前準備
+-- 開通雲端硬碟
+
+```
+
+```
+
 
