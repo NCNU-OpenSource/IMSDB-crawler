@@ -1,6 +1,6 @@
 # IMSDB-crawler
 ---
-# Group 1
+# Group 2
 # Group member
 1. 資工四 104321021 劉肇中
 2. 資工四 104321024 蔡旻勳
