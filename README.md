@@ -297,8 +297,8 @@ sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e
 ![drive2](https://github.com/NCNU-OpenSource/IMSDB-crawler/blob/master/%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA/drive2.png)
 
 ## 效能提升
-- 單一個container花25秒
-- 10個同時跑花105秒
+- 單一個container跑10個URL約250秒
+- 10個同時跑約花105秒
 - 效能提升約2.5倍
 
 ## 注意事項
