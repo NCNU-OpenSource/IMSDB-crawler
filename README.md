@@ -281,6 +281,7 @@ sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e
 - [LSA-1072 Docker](https://docs.google.com/presentation/d/1wYhJkBQkx0jS-oyJG-2imdI7p93wti4XZqR9Jc49PxE/edit?usp=sharing)　
 - [bcardiff/rclone](https://hub.docker.com/r/bcardiff/rclone/)
 - [鳥哥的私房菜](http://linux.vbird.org/)
+- [docker push image](https://docs.docker.com/v17.12/docker-cloud/builds/push-images/)
 
 ## 分工
 - 104321021 劉肇中 : 撰寫核心爬蟲程式 main.py, check.py, crul_script.py
