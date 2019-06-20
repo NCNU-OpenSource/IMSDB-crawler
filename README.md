@@ -6,7 +6,8 @@
 2. 資工四 104321024 蔡旻勳
 
 ## 目的
-- 一個專門用來下載 IMSDB 網站內容的 docker image
+- 一個下載 IMSDB 網站內容並使用 nltk 套件進行分析的 docker image
+- 可備份至雲端 (google-drive)
 - 分三個功能 : url-list, check-new, crawler-url
 
 ## 功能
