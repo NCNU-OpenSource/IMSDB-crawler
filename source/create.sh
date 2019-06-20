@@ -2,7 +2,7 @@
 
 path="/home/kent1201" 
 filename="${path}""/Dockershare/list.txt"
-image_name="/kent1201/test-crawler"
+image_name="104321024/imsdb-crawler"
 
 
 exec < ${filename}
