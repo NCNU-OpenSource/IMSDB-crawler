@@ -1,6 +1,6 @@
 #!/bin/bash
 
-path="/home/kent1201" 
+path="/Path/you/want" 
 filename="${path}""/Dockershare/list.txt"
 image_name="104321024/imsdb-crawler"
 
