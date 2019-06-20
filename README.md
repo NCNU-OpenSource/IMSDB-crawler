@@ -23,7 +23,7 @@
 ### Python
 ## BeautifulSoup
 ```
-pip3 install BS4
+pip3 install bs4
 ```
 ## nltk(Natural Language Tool Kit)
 ```
