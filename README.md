@@ -21,7 +21,11 @@
 
 ## 套件安裝
 ### Python
-### nltk(Natural Language Tool Kit)
+## BeautifulSoup
+```
+pip3 install BS4
+```
+## nltk(Natural Language Tool Kit)
 ```
 pip3 install nltk
 python3 -m nltk.downloader punkt
