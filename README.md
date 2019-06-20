@@ -240,11 +240,11 @@ sudo docker pull 104321024/imsdb-crawler
 ```
 - 執行最初的爬網站
 ```
-sudo docker run --rm -dit -v /path/to/Dockershare:/Dockershare -e EXE="main.py" 104321024/imsdb-crawler
+sudo docker run --rm -dit -v /path/to/Dockershare:/Dockershare -e EXE="main.py" 104321024/imsdb-crawler or your_image_name
 ```
 - 檢查每日更新
 ```
-sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e EXE="check.py" 104321024/imsdb-crawler
+sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e EXE="check.py" 104321024/imsdb-crawler or your_image_name
 ```
 - 每日爬資源
   - /path/to/download-directory/create.sh
