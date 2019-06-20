@@ -50,7 +50,7 @@ sudo apt-cache madison docker-ce
 - main.py : 將[IMSDB](https://www.imsdb.com/alphabetical/A)之URL做成list
 - crawl_script.py : 爬傳入URL中的資料(名稱、類別、腳本...)
 - create.sh : 將list中之URL傳給crawl_script.py 
-- check.py : 每日定時檢查是否有新電影劇本上架，有則呼叫crawl_script.py
+- check.py : 每日定時檢查[new](https://www.imsdb.com/latest/)是否有新電影劇本上架，有則呼叫crawl_script.py
 
 
 ## 程式設定 and 執行
