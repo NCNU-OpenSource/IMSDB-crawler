@@ -19,6 +19,12 @@
 
 ## 套件安裝
 ### Python
+### nltk(Natural Language Tool Kit)
+```
+pip3 install nltk
+python3 -m nltk.downloader punkt
+python3 -m nltk.downloader wordnet
+```
 ### Docker
 - set up the repository
 ```
