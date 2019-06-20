@@ -39,6 +39,24 @@ sudo apt-cache madison docker-ce
 ```
 
 ## 程式設定 and 執行
+### nltk
+```
+def main():
+    count = 1
+    sen = "has was is he his playing ... played happier ? "
+    lemmatizer = WordNetLemmatizer()
+    words_list = nltk.word_tokenize(sen)
+    word_list = nltk.pos_tag(words_list,tagset='universal')
+    for words in word_list:
+        if words[1] != '.':
+            print(words[0],end = ' ->')
+            word =lemmatizer.lemmatize( words[0], pos= 'v' ) 
+            print (lemmatizer.lemmatize( word ) ,end = ' ')
+            print(words[1])
+```
+![nltk](https://github.com/NCNU-OpenSource/IMSDB-crawler/blob/master/%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA/nltk_image.png)
+
+
 ### rclone 備份
 - Pull image
 ```
