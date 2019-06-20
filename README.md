@@ -72,6 +72,32 @@ def main():
 ![nltk](https://github.com/NCNU-OpenSource/IMSDB-crawler/blob/master/%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA/nltk_image.png)
 
 
+### build image
+- 切換到下載的目錄
+```
+sudo docker build --rm -t image_name .
+```
+- Pull image from docker hub
+```
+sudo docker pull 104321024/imsdb-crawler
+```
+- 執行最初的爬網站
+```
+sudo docker run --rm -dit -v /path/to/Dockershare:/Dockershare -e EXE="main.py" 104321024/imsdb-crawler or your_image_name
+```
+- 檢查每日更新
+```
+sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e EXE="check.py" 104321024/imsdb-crawler or your_image_name
+```
+- 每日爬資源
+  - /path/to/download-directory/create.sh
+  - 修改 path : to download-directory
+  - 修改 image_name
+ 
+```
+(crontab -e) 30 0 * * * /path/to/download-directory/create.sh
+```
+
 ### rclone 備份
 - Pull image
 ```
@@ -261,31 +287,6 @@ INFO: Define SYNC_SRC and SYNC_DEST to start sync process.
   - `-e CHECK_URL` 幫助檢查 rclone
 ```
 sudo docker run -idt -v $(pwd)/config:/config -v /path/to/your/directory:/source -e SYNC_SRC="/source" -e SYNC_DEST="your-google-drive:team-drive" -e TZ="Asia/Taipei" -e CRON="0 1 * * *" -e CRON_ABORT="0 6 * * *" -e FORCE_SYNC=1 -e CHECK_URL=Your check url bcardiff/rclone
-```
-### build image
-- 切換到下載的目錄
-```
-sudo docker build --rm -t image_name .
-```
-- Pull image from docker hub
-```
-sudo docker pull 104321024/imsdb-crawler
-```
-- 執行最初的爬網站
-```
-sudo docker run --rm -dit -v /path/to/Dockershare:/Dockershare -e EXE="main.py" 104321024/imsdb-crawler or your_image_name
-```
-- 檢查每日更新
-```
-sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e EXE="check.py" 104321024/imsdb-crawler or your_image_name
-```
-- 每日爬資源
-  - /path/to/download-directory/create.sh
-  - 修改 path : to download-directory
-  - 修改 image_name
- 
-```
-(crontab -e) 30 0 * * * /path/to/download-directory/create.sh
 ```
 
 ## 成果展示
