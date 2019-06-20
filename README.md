@@ -5,6 +5,10 @@
 1. 資工四 104321021 劉肇中
 2. 資工四 104321024 蔡旻勳
 
+## 目的
+- 一個專門用來下載 IMSDB 網站內容的 docker image
+- 分三個功能 : url-list, check-new, crawler-url
+
 ## 功能
 - 使用 docker 建立 crawler-image
 - 建立多個 container 高效爬下所有IMSDB的劇本之編劇、類型以及腳本
