@@ -3,7 +3,7 @@ FROM ubuntu:latest
 
 MAINTAINER kent1201
 
-LABEL name="movie crawler" description="crontab .py with arguments CRON URL FILE" owner="kent1201"
+LABEL name="IMSDB crawler" description="crontab .py with arguments CRON URL FILE" owner="kent1201"
 
 # 建立 image 時, 傳入參數 
 ARG PYTHON_VERSION=python3.5

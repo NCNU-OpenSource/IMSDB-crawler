@@ -30,73 +30,78 @@ def return_title(title):
 
 
     
-input_url = sys.argv[0]
+input_url = sys.argv[1].split(' ')[0]
 genre_page = 'https://www.imsdb.com/Movie Scripts' + input_url[29:-5].replace('-',' ')+' Script.html'
 #input_url = 'https://www.imsdb.com/scripts/A-Few-Good-Men.html'
 movie_title = "/Dockershare/movie/"+return_title(input_url)+".txt"
 f2= open(movie_title,'a')
 
-
 # 找genre and writer
-req = requests.get(genre_page)
-soup = BeautifulSoup(RemoveContent(str(req.content), 'b'), 'lxml')
-text = soup.find('table',{'class':'script-details'})
-imfor = text.find_all('a')
-total = len(imfor)
-writer = imfor[0]
-writer = writer.text
-f2.write(input_url[29:-5].replace('-',' '))
-f2.write('\n')
-f2.write(writer)
-f2.write('\n')
+try:
+    req = requests.get(genre_page)
+    soup = BeautifulSoup(RemoveContent(str(req.content), 'b'), 'lxml')
+    text = soup.find('table',{'class':'script-details'})
+    imfor = text.find_all('a')
+    total = len(imfor)
+    writer = imfor[0]
+    writer = writer.text
+    f2.write(input_url[29:-5].replace('-',' '))
+    f2.write('\n')
+    f2.write(writer)
+    f2.write('\n')
 
-for i in range(1,total-1):
-    genre = imfor[i].text
-    f2.write(genre)
-    f2.write('/n')
+    for i in range(1,total-1):
+        genre = imfor[i].text
+        f2.write(genre)
+        f2.write('/n')
+except:
+    print(genre_page,"can't fetch")
     
 
 # 找words 
-req = requests.get(input_url)
-soup = BeautifulSoup(RemoveContent(str(req.content), 'b'), 'lxml')
+try:
+    req = requests.get(input_url)
+    soup = BeautifulSoup(RemoveContent(str(req.content), 'b'), 'lxml')
 
-text = soup.find('td',{'class':'scrtext'}).text
-text = Multi2One(text, '\\r\\n', '\\n')
-text = Multi2One(text, '\\n')
-text = MakeClean(text,'\\n')
-text = Symbol2NewOne(text, {"\\n":"\n", "\\'":"'", "\\t":"\t"})
-front = str(text)
-
-
-
-dict_m = {'name':0 , 'for':0}
+    text = soup.find('td',{'class':'scrtext'}).text
+    text = Multi2One(text, '\\r\\n', '\\n')
+    text = Multi2One(text, '\\n')
+    text = MakeClean(text,'\\n')
+    text = Symbol2NewOne(text, {"\\n":"\n", "\\'":"'", "\\t":"\t"})
+    front = str(text)
 
 
-words_list = nltk.word_tokenize(front)
-word_list = nltk.pos_tag(words_list,tagset='universal')
-for words in word_list:
+
+    dict_m = {'name':0 , 'for':0}
 
 
-    EName = words[0]
-    EDes  = words[1]
-    EName = lemmatizer.lemmatize( EName ,pos = 'v')
-    EName = lemmatizer.lemmatize(EName )
-    EName = EName.lower()
-    if EDes == '.':
-        continue
-    if EName in dict_m:
-        value = dict_m[EName] + 1
-        dict_m[EName] = value
-    else:
-        dict_m[EName] = 1
-    
-    #print(EName,EDes)
-sorted_x = sorted(dict_m.items(), key=operator.itemgetter(1))
-sorted_x.reverse()
-for w in sorted_x:
-    string = str(w)
-    f2.write(string)
+    words_list = nltk.word_tokenize(front)
+    word_list = nltk.pos_tag(words_list,tagset='universal')
+    for words in word_list:
 
-    f2.write("\n")
+
+        EName = words[0]
+        EDes  = words[1]
+        EName = lemmatizer.lemmatize( EName ,pos = 'v')
+        EName = lemmatizer.lemmatize(EName )
+        EName = EName.lower()
+        if EDes == '.':
+            continue
+        if EName in dict_m:
+            value = dict_m[EName] + 1
+            dict_m[EName] = value
+        else:
+            dict_m[EName] = 1
+
+        #print(EName,EDes)
+    sorted_x = sorted(dict_m.items(), key=operator.itemgetter(1))
+    sorted_x.reverse()
+    for w in sorted_x:
+        string = str(w)
+        f2.write(string)
+
+        f2.write("\n")
+except:
+    print(input_url,"can't fetch")
 
 f2.close()
