@@ -4,6 +4,7 @@ path="/home/kent1201/"
 filename="${path}""Dockershare/list.txt" 
 image="imsdb-crawler"
 count=10
+i=0
 
 exec < ${filename}
 
@@ -16,7 +17,7 @@ do
 	echo "${url} is visited."
     elif [ "${visited}" == "0" ]
     then
-    	if [ "$i" -le "$count" ]
+    	if [ "$i" -lt "$count" ]
 	then
 		echo "Creating..."
         	docker run --rm -dit -v "${path}"Dockershare:/Dockershare -e EXE="crul_script.py" -e URL="${url}"  ${image}
@@ -30,8 +31,8 @@ do
 	elif [ "$i" -eq "$count" ]
 	then
 		echo "I am sleeping."
-		sleep 120
-		i = 0
+		sleep 1m
+		i=0
 	fi
     else
 	exit 1
