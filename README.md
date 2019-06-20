@@ -12,8 +12,8 @@
 - 定時從網站更新內容
 - 文字分析並統計
 
-![genre](https://github.com/NCNU-OpenSource/IMSDB-crawler/blob/master/%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA/IMSDB_genre.png)
-![script](https://github.com/NCNU-OpenSource/IMSDB-crawler/blob/master/%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA/IMSDB_word.png)
+![gen](https://github.com/NCNU-OpenSource/IMSDB-crawler/blob/master/%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA/IMSDB_genre.png)
+![scr](https://github.com/NCNU-OpenSource/IMSDB-crawler/blob/master/%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA/IMSDB_word.png)
 ## 開發環境
 - Ubuntu 16.04
 - Docker version 18.09.6
