@@ -234,13 +234,17 @@ sudo docker run -idt -v $(pwd)/config:/config -v /path/to/your/directory:/source
 ```
 sudo docker build --rm -t image_name .
 ```
+- Pull image from docker hub
+```
+sudo docker pull 104321024/imsdb-crawler
+```
 - 執行最初的爬網站
 ```
-sudo docker run --rm -dit -v /path/to/Dockershare:/Dockershare -e EXE="main.py" image_name
+sudo docker run --rm -dit -v /path/to/Dockershare:/Dockershare -e EXE="main.py" 104321024/imsdb-crawler
 ```
 - 檢查每日更新
 ```
-sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e EXE="check.py" image_name
+sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e EXE="check.py" 104321024/imsdb-crawler
 ```
 - 每日爬資源
   - /path/to/download-directory/create.sh
@@ -272,7 +276,6 @@ sudo docker run -dit -v /path/to/Dockershare:/Dockershare -e CRON="0 0 * * *" -e
 
 ## 未來改進
 - 目前由於安裝套件 pyodbc 的問題與時間緣故，無法進行連線資料庫
-- 努力改進 image, 期許能夠 push 到 docker hub 上
 
 ## 參考
 - [LSA-1072 Docker](https://docs.google.com/presentation/d/1wYhJkBQkx0jS-oyJG-2imdI7p93wti4XZqR9Jc49PxE/edit?usp=sharing)　
